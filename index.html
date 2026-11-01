@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasan Bıçak Family - Ana Sayfa</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    
+    <style>
+        :root {
+            --bg-color: #0a0f0d;
+            --card-bg: #121a16;
+            --primary: #8E3D4B;
+            --secondary: #F0F0F0;
+            --text-main: #ffffff;
+            --text-dim: #b0bec5;
+            --transition: all 0.4s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: rgba(10, 15, 13, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 20px; } /* Boşluğu biraz kıstık */
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 400;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem; /* Yazı boyutunu biraz küçülttük */
+        }
+        
+        .nav-links a i { margin-right: 6px; font-size: 0.9rem; }
+
+        .nav-links a:hover { color: var(--secondary); }
+        .nav-links .active-link { color: var(--primary); font-weight: 700; }
+
+        .hamburger { display: none; cursor: pointer; font-size: 1.8rem; }
+
+        main { margin-top: 130px; padding: 2rem 5%; max-width: 1000px; margin-left: auto; margin-right: auto; }
+
+        .brand-logo-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .brand-logo-img { max-width: 220px; height: auto; }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: radial-gradient(circle at top, #122216 0%, var(--bg-color) 70%);
+            border-radius: 16px;
+            border: 1px solid #1a2e23;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 { font-size: 2.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 1rem; }
+        .hero h1 span { color: var(--secondary); }
+
+        .hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 2rem auto; }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .mini-logo-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            background: var(--card-bg);
+            border: 1px solid #1a2e23;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 3rem;
+            transition: var(--transition);
+        }
+
+        .mini-logo-link:hover {
+            border-color: var(--secondary);
+            background: #16211c;
+        }
+
+        .mini-logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .mini-logo-link span {
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid #1a2e23; }
+        .feature-card h3 { color: var(--primary); margin-bottom: 0.8rem; }
+        .feature-card p { color: var(--text-dim); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; left: 0; width: 100%;
+                background: var(--bg-color);
+                padding: 2rem;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 1rem 0; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Hasan Bıçak Family</div>
+        <div class="hamburger" id="hamburger">☰</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html" class="active-link"><i class="fa-solid fa-house"></i> Ana sayfa</a></li>
+            <li><a href="post.html"><i class="fa-solid fa-download"></i> Gebel Postlar</a></li>
+            <li><a href="hasan.html"><i class="fa-solid fa-video"></i> Hasan</a></li>
+            <li><a href="mercan.html"><i class="fa-solid fa-circle-info"></i> Mertcan</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="brand-logo-wrapper">
+            <img src="logo.png" alt="Bilgi-Veri Ağı" class="brand-logo-img">
+        </div>
+
+        <section class="hero">
+            <h1>Hasan Bıçak <span>Anasayfa</span></h1>
+            <p>hasan bıçak family sitesine hoşgeldiniz</p>
+            <a href="indir.html" class="btn-primary">Genel postları görmek için tıkla</a>
+        </section>
+
+        <a href="post.html" class="mini-logo-link">
+            <img src="video.png" alt="Postlar" class="mini-logo-img">
+            <span>Videoları Keşfet</span>
+        </a>
+      
+    <div class="oneri-duyuru" style="border: 1px solid #4CAF50; padding: 20px; border-radius: 10px; background: #0d0d0d; margin: 20px 0;">
+    <h3 style="color: #4CAF50;">💡 İçerik Önerisi Yapın!</h3>
+    <p>Siteye resim veya video eklemek için email veya whatsapptan gönderebilirsiniz</p>
+    <ul style="list-style: none; padding: 0;">
+        <li>📧 <strong>Gmail postamız:</strong> <a href="mailto:hasanbicakfamily@gmail.com">hasanbicakfamily.com</a></li>
+    </ul>
+    <p><small><em>*Resim veya video eklemeyi unutmayın/em></small></p>
+        </div>
+        
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
